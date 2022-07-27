@@ -343,9 +343,9 @@ class KumiPopupWindow extends StatefulWidget {
     if (_isShow == false) {
       return;
     }
-    _isShow = false;
     if (notStartAnimation == true) {
       Navigator.pop(context);
+      _isShow = false;
       if (onFinish != null) {
         onFinish(this);
       }
@@ -353,6 +353,7 @@ class KumiPopupWindow extends StatefulWidget {
     }
     await _controller!.reverse();
     Navigator.pop(context);
+    _isShow = false;
     if (onFinish != null) {
       onFinish(this);
     }
